@@ -351,12 +351,12 @@ class _ComerxBrand extends StatelessWidget {
         if (!compact) ...[
           const SizedBox(width: 10),
           const Text(
-            'comerx',
+            'Cormex Exchange',
             style: TextStyle(
               color: AppColors.navy,
-              fontSize: 23,
+              fontSize: 18,
               fontWeight: FontWeight.w900,
-              letterSpacing: -1,
+              letterSpacing: -0.5,
             ),
           ),
         ],
