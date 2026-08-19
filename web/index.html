@@ -1,46 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Cormex Exchange">
 
-  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="sistem_cormex">
+  <meta name="apple-mobile-web-app-title" content="Cormex Exchange">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="data:image/png;base64,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"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=6">
+  <link rel="shortcut icon" type="image/png" href="favicon.png?v=6">
 
-  <title>sistem_cormex</title>
+  <title>Cormex Exchange</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
-
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
