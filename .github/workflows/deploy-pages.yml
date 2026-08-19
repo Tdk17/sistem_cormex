@@ -38,31 +38,35 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      - name: Validate Parse build secrets
+      - name: Validate Parse build variables
         env:
-          PARSE_APPLICATION_ID: ${{ secrets.PARSE_APPLICATION_ID }}
-          PARSE_JAVASCRIPT_KEY: ${{ secrets.PARSE_JAVASCRIPT_KEY }}
+          PARSE_APPLICATION_ID: ${{ vars.PARSE_APPLICATION_ID }}
+          PARSE_JAVASCRIPT_KEY: ${{ vars.PARSE_JAVASCRIPT_KEY }}
         shell: bash
         run: |
+          echo "Event: $GITHUB_EVENT_NAME"
+          echo "Repository: $GITHUB_REPOSITORY"
           if [ -z "$PARSE_APPLICATION_ID" ]; then
-            echo "::error::GitHub Secret PARSE_APPLICATION_ID não configurado."
+            echo "::error::GitHub Variable PARSE_APPLICATION_ID não configurada."
             exit 1
           fi
           if [ -z "$PARSE_JAVASCRIPT_KEY" ]; then
-            echo "::error::GitHub Secret PARSE_JAVASCRIPT_KEY não configurado."
+            echo "::error::GitHub Variable PARSE_JAVASCRIPT_KEY não configurada."
             exit 1
           fi
-          echo "Parse build secrets configurados."
+          echo "PARSE_APPLICATION_ID configurada (tamanho: ${#PARSE_APPLICATION_ID})."
+          echo "PARSE_JAVASCRIPT_KEY configurada (tamanho: ${#PARSE_JAVASCRIPT_KEY})."
 
       - name: Build Flutter Web
         env:
-          PARSE_APPLICATION_ID: ${{ secrets.PARSE_APPLICATION_ID }}
-          PARSE_JAVASCRIPT_KEY: ${{ secrets.PARSE_JAVASCRIPT_KEY }}
+          PARSE_APPLICATION_ID: ${{ vars.PARSE_APPLICATION_ID }}
+          PARSE_JAVASCRIPT_KEY: ${{ vars.PARSE_JAVASCRIPT_KEY }}
         shell: bash
         run: |
           flutter build web \
             --release \
             --base-href "/sistem_cormex/" \
+            --dart-define=PARSE_SERVER_URL="https://parseapi.back4app.com" \
             --dart-define=PARSE_APPLICATION_ID="$PARSE_APPLICATION_ID" \
             --dart-define=PARSE_JAVASCRIPT_KEY="$PARSE_JAVASCRIPT_KEY"
 
