@@ -16,7 +16,7 @@ class ComerxApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Comerx',
+      title: 'Cormex Exchange',
       theme: AppTheme.light,
       routerConfig: getIt<GoRouter>(),
     );
