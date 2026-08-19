@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="sistem_cormex"
+        android:label="Cormex Exchange"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
