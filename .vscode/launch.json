@@ -1,0 +1,42 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Comerx Web - Debug",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "flutterMode": "debug",
+      "console": "debugConsole",
+      "toolArgs": [
+        "--dart-define-from-file",
+        "config/dev.json"
+      ]
+    },
+    {
+      "name": "Comerx Web - Profile",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "flutterMode": "profile",
+      "toolArgs": [
+        "--dart-define-from-file",
+        "config/dev.json"
+      ]
+    },
+    {
+      "name": "Comerx Web - Release",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "flutterMode": "release",
+      "toolArgs": [
+        "--dart-define-from-file",
+        "config/dev.json"
+      ]
+    }
+  ]
+}
