@@ -42,12 +42,12 @@ class BrandLogo extends StatelessWidget {
         ),
         const SizedBox(width: 11),
         Text(
-          'comerx',
+          'Cormex Exchange',
           style: TextStyle(
             color: color,
-            fontSize: 27,
+            fontSize: 22,
             fontWeight: FontWeight.w800,
-            letterSpacing: -1.1,
+            letterSpacing: -0.6,
           ),
         ),
       ],
