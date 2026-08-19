@@ -124,7 +124,7 @@ class _LogInPageState extends State<LogInPage> {
                   const SizedBox(height: 12),
                 ],
                 AuthPrimaryButton(
-                  label: 'Entrar no Comerx',
+                  label: 'Entrar no Cormex Exchange',
                   icon: Icons.arrow_forward_rounded,
                   loading: loading,
                   onTap: () {
