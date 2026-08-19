@@ -38,8 +38,33 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
+      - name: Validate Parse build secrets
+        env:
+          PARSE_APPLICATION_ID: ${{ secrets.PARSE_APPLICATION_ID }}
+          PARSE_JAVASCRIPT_KEY: ${{ secrets.PARSE_JAVASCRIPT_KEY }}
+        shell: bash
+        run: |
+          if [ -z "$PARSE_APPLICATION_ID" ]; then
+            echo "::error::GitHub Secret PARSE_APPLICATION_ID não configurado."
+            exit 1
+          fi
+          if [ -z "$PARSE_JAVASCRIPT_KEY" ]; then
+            echo "::error::GitHub Secret PARSE_JAVASCRIPT_KEY não configurado."
+            exit 1
+          fi
+          echo "Parse build secrets configurados."
+
       - name: Build Flutter Web
-        run: flutter build web --release --base-href "/sistem_cormex/"
+        env:
+          PARSE_APPLICATION_ID: ${{ secrets.PARSE_APPLICATION_ID }}
+          PARSE_JAVASCRIPT_KEY: ${{ secrets.PARSE_JAVASCRIPT_KEY }}
+        shell: bash
+        run: |
+          flutter build web \
+            --release \
+            --base-href "/sistem_cormex/" \
+            --dart-define=PARSE_APPLICATION_ID="$PARSE_APPLICATION_ID" \
+            --dart-define=PARSE_JAVASCRIPT_KEY="$PARSE_JAVASCRIPT_KEY"
 
       - name: Disable Jekyll
         run: touch build/web/.nojekyll
