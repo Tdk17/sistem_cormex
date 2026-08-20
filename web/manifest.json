@@ -1,23 +1,37 @@
 {
+  "id": "./",
   "name": "Cormex Exchange",
-  "short_name": "Cormex Exchange",
-  "start_url": ".",
+  "short_name": "Cormex",
+  "description": "Cormex Exchange — gestão comercial, pedidos, clientes, produtos e logística.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#0175C2",
-  "theme_color": "#0175C2",
-  "description": "Cormex Exchange",
-  "orientation": "portrait-primary",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "background_color": "#F7F8F4",
+  "theme_color": "#071D2B",
+  "categories": [
+    "business",
+    "productivity"
+  ],
   "prefer_related_applications": false,
   "icons": [
     {
       "src": "icons/Icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "icons/Icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "icons/Icon-maskable-192.png",
